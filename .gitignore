@@ -1,0 +1,10 @@
+# Python specific
+*.pyc
+*.pyo
+__pycache__/
+
+# Virtual Environment
+venv/
+
+# Images
+data/
