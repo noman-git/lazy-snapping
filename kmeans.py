@@ -1,14 +1,16 @@
 import numpy as np
 
 
-class KMeans:
-    """KMeans clustering algorithm."""
+class MyKMeans:
+    """KMeans clustering algorithm class."""
 
-    def __init__(self, k=3, tol=0.001, max_iter=200):
+    def __init__(self, k=3, tol=0.001, max_iter=200, random_state=None):
         """Initialize KMeans object."""
         self.k = k
         self.tol = tol
         self.max_iter = max_iter
+        self.random_state = random_state
+        np.random.seed(self.random_state)
 
     def fit(self, data):
         """Fit KMeans model to data."""
