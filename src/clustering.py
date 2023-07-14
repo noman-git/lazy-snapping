@@ -12,7 +12,7 @@ def kmeans_exec(k, image_array):
 
 def skkmeans_exec(k, image_array):
     """Function to execute k-means clustering using built-in implementation."""
-    kmeanalgo = KMeans(n_clusters=k, random_state=0)
+    kmeanalgo = KMeans(n_clusters=k, random_state=0, n_init=10)
     kmeanalgo.fit(image_array)
     centroids = kmeanalgo.cluster_centers_
     indices = kmeanalgo.labels_
