@@ -1,5 +1,5 @@
 from cv2 import imread
-from src.lazy_snapping import lazySnapping
+from src.lazy_snapping import lazy_snapping
 from src.display import display_images
 
 
@@ -10,7 +10,7 @@ def main():
               ("data/Mona-lisa.PNG", "data/Mona-lisa stroke 1.png"), 
               ("data/Mona-lisa.PNG", "data/Mona-lisa stroke 2.png"), 
               ("data/van Gogh.PNG", "data/van Gogh stroke.png")]
-    N_values = [2, 32, 64, 98, 128]
+    N_values = [2, 32, 64, 96, 128]
 
     # Loop over your images and seeds
     for image_path, seed_path in images:
@@ -21,8 +21,8 @@ def main():
         # Perform the lazy snapping
         for N in N_values:
             print(f'Result with {N} clusters: ')
-            lazySnapping(image, seed, 'kmeans_exec', 3, N)
-            lazySnapping(image, seed, 'skkmeans_exec', 3, N)
+            lazy_snapping(image, seed, 'kmeans_exec', 3, N)
+            lazy_snapping(image, seed, 'skkmeans_exec', 3, N)
 
 if __name__ == "__main__":
     main()

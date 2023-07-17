@@ -1,10 +1,10 @@
 import numpy as np
 from time import time
 from .clustering import kmeans_exec, skkmeans_exec
-from .probability_proc import calc_prob
+from .probability_proc import calc_bin_mask
 from .display import display_images
 
-def lazySnapping(image_array, seed_image_array, kmeans_choice, seed_k, k):
+def lazy_snapping(image_array, seed_image_array, kmeans_choice, seed_k, k):
     """The main function to perform all steps of lazy snapping.""" 
     if kmeans_choice == 'kmeans_exec':
         kmeans_type = kmeans_exec
@@ -33,13 +33,13 @@ def lazySnapping(image_array, seed_image_array, kmeans_choice, seed_k, k):
     cluster1_centroids, cluster1_indices = kmeans_type(k, cluster1_pixels) 
     cluster2_centroids, cluster2_indices = kmeans_type(k, cluster2_pixels)
     
+    end_time = time()
+    
     # Step 4) Calculate the probability of each pixel in the image belonging to either cluster (foreground or background)
-    bin_weight_mask = calc_prob(image_array, cluster1_centroids, cluster1_indices, cluster2_centroids, cluster2_indices)
+    bin_weight_mask = calc_bin_mask(image_array, cluster1_centroids, cluster1_indices, cluster2_centroids, cluster2_indices)
     
     # Step 4) Display the results
     display_images(bin_weight_mask, image_array, seed_image_array)
-    
-    end_time = time()
     
     print(f'{kmeans_choice}Process time:')
     print(f'{end_time - start_time:.4f}s ({(end_time - start_time) / 60:.3f} minutes)')

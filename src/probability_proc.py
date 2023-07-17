@@ -7,7 +7,7 @@ def weight(index):
     # return the relative frequency of each unique value in the index array
     return counts / len(index)  
 
-def calc_prob(image, c1, i1, c2, i2):
+def calc_bin_mask(image, c1, i1, c2, i2):
     """Calculate the probability of each pixel in the image belonging to foreground or background."""
     # Get the clusters' weights
     cluster1_weight = weight(i1)

@@ -6,7 +6,7 @@ sys.path.insert(0, '.')
 
 from src.kmeans import MyKMeans
 
-def test_my_kmeans():
+def test_my_kmeans() -> None:
     # Create a simple dataset
     X = np.array([[1, 2], [1, 4], [1, 0], [10, 2], [10, 4], [10, 0]])
 

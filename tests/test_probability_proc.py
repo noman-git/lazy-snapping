@@ -4,7 +4,7 @@ import numpy as np
 
 sys.path.insert(0, '.')
 
-from src.probability_proc import weight, calc_prob
+from src.probability_proc import weight, calc_bin_mask
 
 
 def test_weight() -> None:
@@ -21,6 +21,6 @@ def test_calc_prob() -> None:
     i1 = np.array([0])
     c2 = np.array([[7, 8, 9]])
     i2 = np.array([0])
-    result = calc_prob(image, c1, i1, c2, i2)
+    result = calc_bin_mask(image, c1, i1, c2, i2)
     assert result.shape == (3, 3)
     assert np.all(result == 255)
