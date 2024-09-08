@@ -1,7 +1,6 @@
 # Prerequisites:
 **Python _3.10.2_**
 > pip3 install -r requirements.txt
-### Please evaluate the code on the second method (main.py file and scripts in the src directory instead of the notebook)
 # How to run
 ## Method 1) Jupyter notebook
 ### 1) Install Jupyter notebook
